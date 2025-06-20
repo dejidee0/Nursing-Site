@@ -1,33 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Calendar, Clock, ExternalLink, Badge } from 'lucide-react';
-import { NEWS_EVENTS } from '../utils/constants';
-import type { NewsEvent } from '../types';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Calendar, ExternalLink, Badge, ArrowRight } from "lucide-react";
+import { NEWS_EVENTS } from "../utils/constants";
+import type { NewsEvent } from "../types";
 
 const NewsEvents: React.FC = () => {
-  const getEventIcon = (type: NewsEvent['type']) => {
+  const getEventIcon = (type: NewsEvent["type"]) => {
     switch (type) {
-      case 'certification':
-        return '🎓';
-      case 'workshop':
-        return '💻';
-      case 'exam':
-        return '📝';
+      case "certification":
+        return "🎓";
+      case "workshop":
+        return "💻";
+      case "exam":
+        return "📝";
       default:
-        return '📅';
+        return "📅";
     }
   };
 
-  const getEventColor = (type: NewsEvent['type']) => {
+  const getEventColor = (type: NewsEvent["type"]) => {
     switch (type) {
-      case 'certification':
-        return 'bg-blue-100 text-blue-800';
-      case 'workshop':
-        return 'bg-purple-100 text-purple-800';
-      case 'exam':
-        return 'bg-emerald-100 text-emerald-800';
+      case "certification":
+        return "bg-blue-100 text-blue-800";
+      case "workshop":
+        return "bg-purple-100 text-purple-800";
+      case "exam":
+        return "bg-emerald-100 text-emerald-800";
       default:
-        return 'bg-gray-100 text-gray-800';
+        return "bg-gray-100 text-gray-800";
     }
   };
 
@@ -39,7 +39,8 @@ const NewsEvents: React.FC = () => {
             News & Active Opportunities
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Stay updated with the latest certifications, workshops, and professional development opportunities
+            Stay updated with the latest certifications, workshops, and
+            professional development opportunities
           </p>
         </div>
 
@@ -71,7 +72,11 @@ const NewsEvents: React.FC = () => {
 
                 {/* Event Type Badge */}
                 <div className="mb-4">
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getEventColor(event.type)}`}>
+                  <span
+                    className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getEventColor(
+                      event.type
+                    )}`}
+                  >
                     {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
                   </span>
                 </div>
@@ -84,7 +89,7 @@ const NewsEvents: React.FC = () => {
 
                 {/* CTA */}
                 <Link
-                  to={event.registrationUrl || '/register'}
+                  to={event.registrationUrl || "/register"}
                   className="inline-flex items-center w-full justify-center px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition-colors group"
                 >
                   Register Now
